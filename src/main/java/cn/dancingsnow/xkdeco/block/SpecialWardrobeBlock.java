@@ -1,6 +1,6 @@
-package cn.dancingsnow.xkdeco.blocks;
+package cn.dancingsnow.xkdeco.block;
 
-import cn.dancingsnow.xkdeco.blockentities.WardrobeBlockEntity;
+import cn.dancingsnow.xkdeco.blockentity.WardrobeBlockEntity;
 import cn.dancingsnow.xkdeco.setup.ModBlockEntities;
 import net.minecraft.block.AbstractChestBlock;
 import net.minecraft.block.Block;

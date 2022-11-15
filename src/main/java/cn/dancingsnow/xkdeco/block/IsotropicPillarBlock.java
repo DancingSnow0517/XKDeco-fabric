@@ -1,4 +1,4 @@
-package cn.dancingsnow.xkdeco.blocks;
+package cn.dancingsnow.xkdeco.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

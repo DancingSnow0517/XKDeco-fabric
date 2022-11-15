@@ -1,4 +1,4 @@
-package cn.dancingsnow.xkdeco.blocks;
+package cn.dancingsnow.xkdeco.block;
 
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.block.Block;

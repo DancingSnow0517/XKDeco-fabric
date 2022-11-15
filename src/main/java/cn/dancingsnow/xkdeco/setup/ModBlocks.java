@@ -1,33 +1,31 @@
 package cn.dancingsnow.xkdeco.setup;
 
 import cn.dancingsnow.xkdeco.XKDeco;
-import cn.dancingsnow.xkdeco.blocks.BasicBlock;
-import cn.dancingsnow.xkdeco.blocks.BasicCubeBlock;
-import cn.dancingsnow.xkdeco.blocks.BasicFullDirectionBlock;
-import cn.dancingsnow.xkdeco.blocks.IsotropicCubeBlock;
-import cn.dancingsnow.xkdeco.blocks.IsotropicHollowBlock;
-import cn.dancingsnow.xkdeco.blocks.IsotropicPillarBlock;
-import cn.dancingsnow.xkdeco.blocks.IsotropicRoofBlock;
-import cn.dancingsnow.xkdeco.blocks.IsotropicRoofEaveBlock;
-import cn.dancingsnow.xkdeco.blocks.IsotropicRoofFlatBlock;
-import cn.dancingsnow.xkdeco.blocks.IsotropicSlabBlock;
-import cn.dancingsnow.xkdeco.blocks.IsotropicStairBlock;
-import cn.dancingsnow.xkdeco.blocks.PlantLeavesBlock;
-import cn.dancingsnow.xkdeco.blocks.PlantLeavesShatterBlock;
-import cn.dancingsnow.xkdeco.blocks.PlantSlabBlock;
-import cn.dancingsnow.xkdeco.blocks.SpecialBlockDisplayBlock;
-import cn.dancingsnow.xkdeco.blocks.SpecialConsole;
-import cn.dancingsnow.xkdeco.blocks.SpecialCupBlock;
-import cn.dancingsnow.xkdeco.blocks.SpecialDessertBlock;
-import cn.dancingsnow.xkdeco.blocks.SpecialItemDisplayBlock;
-import cn.dancingsnow.xkdeco.blocks.SpecialLightBar;
-import cn.dancingsnow.xkdeco.blocks.SpecialRoofRidgeBlock;
-import cn.dancingsnow.xkdeco.blocks.SpecialWallBlock;
-import cn.dancingsnow.xkdeco.blocks.SpecialWardrobeBlock;
+import cn.dancingsnow.xkdeco.block.BasicBlock;
+import cn.dancingsnow.xkdeco.block.BasicCubeBlock;
+import cn.dancingsnow.xkdeco.block.BasicFullDirectionBlock;
+import cn.dancingsnow.xkdeco.block.IsotropicCubeBlock;
+import cn.dancingsnow.xkdeco.block.IsotropicHollowBlock;
+import cn.dancingsnow.xkdeco.block.IsotropicPillarBlock;
+import cn.dancingsnow.xkdeco.block.IsotropicRoofBlock;
+import cn.dancingsnow.xkdeco.block.IsotropicRoofEaveBlock;
+import cn.dancingsnow.xkdeco.block.IsotropicRoofFlatBlock;
+import cn.dancingsnow.xkdeco.block.IsotropicSlabBlock;
+import cn.dancingsnow.xkdeco.block.IsotropicStairBlock;
+import cn.dancingsnow.xkdeco.block.PlantLeavesBlock;
+import cn.dancingsnow.xkdeco.block.PlantLeavesShatterBlock;
+import cn.dancingsnow.xkdeco.block.PlantSlabBlock;
+import cn.dancingsnow.xkdeco.block.SpecialBlockDisplayBlock;
+import cn.dancingsnow.xkdeco.block.SpecialConsole;
+import cn.dancingsnow.xkdeco.block.SpecialCupBlock;
+import cn.dancingsnow.xkdeco.block.SpecialDessertBlock;
+import cn.dancingsnow.xkdeco.block.SpecialItemDisplayBlock;
+import cn.dancingsnow.xkdeco.block.SpecialLightBar;
+import cn.dancingsnow.xkdeco.block.SpecialRoofRidgeBlock;
+import cn.dancingsnow.xkdeco.block.SpecialWardrobeBlock;
 import com.google.common.collect.Maps;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.WallBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
@@ -38,7 +36,6 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -157,7 +154,7 @@ public class ModBlocks {
 
     private static Pair<Block, Item> addIsotropic(String id, AbstractBlock.Settings settings, Item.Settings itemSettings) {
         Identifier identifier = new Identifier(XKDeco.MOD_ID, id);
-        var isGlass = id.contains(GLASS_SUFFIX) || id.contains(TRANSLUCENT_PREFIX) || id.contains(GRASS_PREFIX);
+        var isGlass = id.contains(GLASS_SUFFIX) || id.contains(TRANSLUCENT_PREFIX) || id.contains(GLASS_PREFIX);
         if (id.contains(SLAB_SUFFIX)) {
             var block = new IsotropicSlabBlock(settings, isGlass);
             return createBlockItemAndRegistry(block, itemSettings, identifier);

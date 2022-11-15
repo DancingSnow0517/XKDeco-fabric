@@ -12,8 +12,8 @@ public class XKDeco implements ModInitializer {
     @Override
     public void onInitialize() {
 
-        ModItems.registry();
         ModBlocks.registry();
+        ModItems.registry();
         ModBlockEntities.registry();
 //        ModBlocks.addSpecialWallBlocks();
 

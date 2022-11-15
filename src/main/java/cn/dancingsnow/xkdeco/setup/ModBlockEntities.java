@@ -1,11 +1,11 @@
 package cn.dancingsnow.xkdeco.setup;
 
 import cn.dancingsnow.xkdeco.XKDeco;
-import cn.dancingsnow.xkdeco.blockentities.BlockDisplayBlockEntity;
-import cn.dancingsnow.xkdeco.blockentities.ItemDisplayBlockEntity;
-import cn.dancingsnow.xkdeco.blockentities.WallBlockEntity;
-import cn.dancingsnow.xkdeco.blockentities.WardrobeBlockEntity;
-import cn.dancingsnow.xkdeco.blocks.SpecialWallBlock;
+import cn.dancingsnow.xkdeco.blockentity.BlockDisplayBlockEntity;
+import cn.dancingsnow.xkdeco.blockentity.ItemDisplayBlockEntity;
+import cn.dancingsnow.xkdeco.blockentity.WallBlockEntity;
+import cn.dancingsnow.xkdeco.blockentity.WardrobeBlockEntity;
+import cn.dancingsnow.xkdeco.block.SpecialWallBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntityType;

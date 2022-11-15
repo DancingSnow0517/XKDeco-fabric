@@ -1,8 +1,8 @@
 package cn.dancingsnow.xkdeco.utils;
 
-import cn.dancingsnow.xkdeco.blocks.IsotropicRoofBlock;
-import cn.dancingsnow.xkdeco.blocks.IsotropicRoofEaveBlock;
-import cn.dancingsnow.xkdeco.blocks.IsotropicRoofFlatBlock;
+import cn.dancingsnow.xkdeco.block.IsotropicRoofBlock;
+import cn.dancingsnow.xkdeco.block.IsotropicRoofEaveBlock;
+import cn.dancingsnow.xkdeco.block.IsotropicRoofFlatBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.data.client.BlockStateVariantMap;
 import net.minecraft.item.ItemPlacementContext;

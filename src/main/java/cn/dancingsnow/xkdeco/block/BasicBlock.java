@@ -1,4 +1,4 @@
-package cn.dancingsnow.xkdeco.blocks;
+package cn.dancingsnow.xkdeco.block;
 
 import com.google.common.collect.ImmutableMap;
 import net.minecraft.block.Block;
@@ -43,6 +43,7 @@ public final class BasicBlock extends Block implements Waterloggable, XKDecoBloc
         this.setDefaultState(this.getStateManager().getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH));
     }
 
+    @SuppressWarnings("DuplicatedCode")
     @Nullable
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {

@@ -1,6 +1,6 @@
-package cn.dancingsnow.xkdeco.blocks;
+package cn.dancingsnow.xkdeco.block;
 
-import cn.dancingsnow.xkdeco.blockentities.BlockDisplayBlockEntity;
+import cn.dancingsnow.xkdeco.blockentity.BlockDisplayBlockEntity;
 import cn.dancingsnow.xkdeco.utils.MathUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;

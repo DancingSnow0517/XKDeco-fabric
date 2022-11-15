@@ -1,4 +1,4 @@
-package cn.dancingsnow.xkdeco.blockentities;
+package cn.dancingsnow.xkdeco.blockentity;
 
 import cn.dancingsnow.xkdeco.setup.ModBlockEntities;
 import net.minecraft.block.BlockState;
