@@ -18,7 +18,7 @@ public final class IsotropicPillarBlock extends PillarBlock implements XKDecoBlo
     }
 
     @Override
-    @SuppressWarnings("deprecation")
+    @SuppressWarnings({"deprecation", "DuplicatedCode"})
     public boolean isSideInvisible(BlockState state, BlockState stateFrom, Direction direction) {
         boolean faceBlocked = false;
         var block = stateFrom.getBlock();

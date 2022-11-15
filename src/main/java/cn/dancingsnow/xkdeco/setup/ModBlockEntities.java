@@ -3,7 +3,11 @@ package cn.dancingsnow.xkdeco.setup;
 import cn.dancingsnow.xkdeco.XKDeco;
 import cn.dancingsnow.xkdeco.blockentities.BlockDisplayBlockEntity;
 import cn.dancingsnow.xkdeco.blockentities.ItemDisplayBlockEntity;
+import cn.dancingsnow.xkdeco.blockentities.WallBlockEntity;
+import cn.dancingsnow.xkdeco.blockentities.WardrobeBlockEntity;
+import cn.dancingsnow.xkdeco.blocks.SpecialWallBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -29,6 +33,26 @@ public class ModBlockEntities {
             ).build()
     );
 
-    public static void registry() {}
+    public static final BlockEntityType<WallBlockEntity> WALL_BLOCK_ENTITY = Registry.register(
+            Registry.BLOCK_ENTITY_TYPE,
+            new Identifier(XKDeco.MOD_ID, "special_wall"),
+            FabricBlockEntityTypeBuilder.create(WallBlockEntity::new,
+                    Registry.BLOCK.getIds().stream().map(Registry.BLOCK::get)
+                            .filter(SpecialWallBlock.class::isInstance).toArray(Block[]::new)
+                    ).build()
+    );
+
+    public static final BlockEntityType<WardrobeBlockEntity> WARDROBE_BLOCK_ENTITY = Registry.register(
+            Registry.BLOCK_ENTITY_TYPE,
+            new Identifier(XKDeco.MOD_ID, "wardrobe"),
+            FabricBlockEntityTypeBuilder.create(WardrobeBlockEntity::new,
+                    ModBlocks.VARNISHED_WARDROBE.getLeft(), ModBlocks.EBONY_WARDROBE.getLeft(),
+                    ModBlocks.MAHOGANY_WARDROBE.getLeft(), ModBlocks.IRON_WARDROBE.getLeft(),
+                    ModBlocks.GLASS_WARDROBE.getLeft(), ModBlocks.FULL_GLASS_WARDROBE.getLeft()
+            ).build()
+    );
+
+    public static void registry() {
+    }
 
 }

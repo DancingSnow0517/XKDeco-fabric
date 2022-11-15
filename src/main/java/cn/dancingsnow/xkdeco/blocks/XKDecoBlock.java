@@ -39,7 +39,7 @@ public sealed interface XKDecoBlock permits XKDecoBlock.Basic, XKDecoBlock.Isotr
     }
 
     // not impl
-    sealed interface Special extends XKDecoBlock permits SpecialBlockDisplayBlock, SpecialItemDisplayBlock {
+    sealed interface Special extends XKDecoBlock permits SpecialBlockDisplayBlock, SpecialConsole, SpecialCupBlock, SpecialDessertBlock, SpecialItemDisplayBlock, SpecialLightBar, SpecialRoofRidgeBlock, SpecialWallBlock, SpecialWardrobeBlock {
         // nothing here
     }
 

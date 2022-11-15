@@ -15,6 +15,7 @@ public class XKDeco implements ModInitializer {
         ModItems.registry();
         ModBlocks.registry();
         ModBlockEntities.registry();
+//        ModBlocks.addSpecialWallBlocks();
 
     }
 }

@@ -18,6 +18,9 @@
     ],
     "main": [
       "cn.dancingsnow.xkdeco.XKDeco"
+    ],
+    "fabric-datagen": [
+      "cn.dancingsnow.xkdeco.data.ModDataGenerators"
     ]
   },
   "mixins": [

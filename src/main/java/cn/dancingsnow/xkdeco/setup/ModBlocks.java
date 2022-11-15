@@ -16,10 +16,18 @@ import cn.dancingsnow.xkdeco.blocks.PlantLeavesBlock;
 import cn.dancingsnow.xkdeco.blocks.PlantLeavesShatterBlock;
 import cn.dancingsnow.xkdeco.blocks.PlantSlabBlock;
 import cn.dancingsnow.xkdeco.blocks.SpecialBlockDisplayBlock;
+import cn.dancingsnow.xkdeco.blocks.SpecialConsole;
+import cn.dancingsnow.xkdeco.blocks.SpecialCupBlock;
+import cn.dancingsnow.xkdeco.blocks.SpecialDessertBlock;
 import cn.dancingsnow.xkdeco.blocks.SpecialItemDisplayBlock;
+import cn.dancingsnow.xkdeco.blocks.SpecialLightBar;
+import cn.dancingsnow.xkdeco.blocks.SpecialRoofRidgeBlock;
+import cn.dancingsnow.xkdeco.blocks.SpecialWallBlock;
+import cn.dancingsnow.xkdeco.blocks.SpecialWardrobeBlock;
 import com.google.common.collect.Maps;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.WallBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
@@ -30,6 +38,7 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -208,9 +217,11 @@ public class ModBlocks {
     private static Pair<Block, Item> addSpecial(String id, AbstractBlock.Settings settings, Item.Settings itemSettings) {
         Identifier identifier = new Identifier(XKDeco.MOD_ID, id);
         if (id.equals(CUP_SPECIAL)) {
-            throw new IllegalArgumentException("Not implemented id (" + id + ") for special blocks");
+            var block = new SpecialCupBlock(settings);
+            return createBlockItemAndRegistry(block, itemSettings, identifier);
         } else if (id.equals(REFRESHMENT_SPECIAL) || id.equals(FRUIT_PLATTER_SPECIAL)) {
-            throw new IllegalArgumentException("Not implemented id (" + id + ") for special blocks");
+            var block = new SpecialDessertBlock(settings);
+            return createBlockItemAndRegistry(block, itemSettings, identifier);
         } else if (id.contains(ITEM_DISPLAY_SUFFIX) || id.equals(ITEM_PROJECTOR_SPECIAL)) {
             var block = new SpecialItemDisplayBlock(settings);
             return createBlockItemAndRegistry(block, itemSettings, identifier);
@@ -218,20 +229,40 @@ public class ModBlocks {
             var block = new SpecialBlockDisplayBlock(settings);
             return createBlockItemAndRegistry(block, itemSettings, identifier);
         } else if (id.contains(WARDROBE_SUFFIX)) {
-            throw new IllegalArgumentException("Not implemented id (" + id + ") for special blocks");
+            var block = new SpecialWardrobeBlock(settings);
+            return createBlockItemAndRegistry(block, itemSettings, identifier);
         } else if (id.contains(ROOF_SUFFIX)) {
-            throw new IllegalArgumentException("Not implemented id (" + id + ") for special blocks");
+            var block = new SpecialRoofRidgeBlock(settings);
+            return createBlockItemAndRegistry(block, itemSettings, identifier);
         } else if (Objects.equals(id, "factory_light_bar")) {
-            throw new IllegalArgumentException("Not implemented id (" + id + ") for special blocks");
+            var block = new SpecialLightBar(settings);
+            return createBlockItemAndRegistry(block, itemSettings, identifier);
         } else if (id.contains(VENT_FAN_SUFFIX)) {
-            throw new IllegalArgumentException("Not implemented id (" + id + ") for special blocks");
+            var shapes = Maps.toMap(Arrays.stream(Direction.values()).toList(), d -> ShapeFunction.fromVentFan().getShape(d));
+            var block = new BasicFullDirectionBlock(settings, shapes);
+            return createBlockItemAndRegistry(block, itemSettings, identifier);
         } else if (id.contains(CONSOLE_SUFFIX)) {
-            throw new IllegalArgumentException("Not implemented id (" + id + ") for special blocks");
+            var block = new SpecialConsole(settings);
+            return createBlockItemAndRegistry(block, itemSettings, identifier);
         } else {
             throw new IllegalArgumentException("Illegal id (" + id + ") for special blocks");
         }
-
     }
+
+//    public static void addSpecialWallBlocks() {
+//        var ids = Registry.BLOCK.getIds();
+//        for (var id : ids) {
+//            if (!id.getNamespace().equals("minecraft")) {
+//                continue;
+//            }
+//            var block = Registry.BLOCK.get(id);
+//            if (block instanceof WallBlock wall) {
+//                var specialBlock = new SpecialWallBlock(wall);
+//                var name = SPECIAL_WALL_PREFIX + id.toString().replace(':', '_');
+//                createBlockItemAndRegistry(specialBlock, ITEM_STRUCTURE, new Identifier(XKDeco.MOD_ID, name));
+//            }
+//        }
+//    }
 
     private static Pair<Block, Item> createBlockItemAndRegistry(Block block, Item.Settings settings, Identifier identifier) {
         BlockItem blockItem = new BlockItem(block, settings);
@@ -572,9 +603,6 @@ public class ModBlocks {
     public static final Pair<Block, Item> SMALL_SIGN_LEFT = addBasic("small_sign_left", ShapeFunction.fromScreen(), false, BLOCK_METAL_LIGHT_NO_COLLISSION, ITEM_FURNITURE);
     public static final Pair<Block, Item> SMALL_SIGN_RIGHT = addBasic("small_sign_right", ShapeFunction.fromScreen(), false, BLOCK_METAL_LIGHT_NO_COLLISSION, ITEM_FURNITURE);
     public static final Pair<Block, Item> SMALL_SIGN_GROUND = addBasic("small_sign_ground", s -> Block.createCuboidShape(0, 0, 0, 16, 1, 16), false, BLOCK_METAL_LIGHT_NO_COLLISSION, ITEM_FURNITURE);
-
-
-
 
 
     // Isotropic
@@ -964,10 +992,10 @@ public class ModBlocks {
     public static final Pair<Block, Item> WHITE_CHERRY_BLOSSOM_SHATTER = addPlant("white_cherry_blossom_shatter", BLOCK_LEAVES, ITEM_NATURE);
 
     // Special
-//    public static final Pair<Block, Item> BLACK_ROOF_RIDGE = addSpecial("black_roof_ridge", BLOCK_ROOF, ITEM_STRUCTURE);
-//    public static final Pair<Block, Item> CUP = addSpecial("cup", BLOCK_MINIATURE, ITEM_FURNITURE);
-//    public static final Pair<Block, Item> REFRESHMENTS = addSpecial("refreshments", BLOCK_DESSERT, ITEM_FURNITURE);
-//    public static final Pair<Block, Item> FRUIT_PLATTER = addSpecial("fruit_platter", BLOCK_DESSERT, ITEM_FURNITURE);
+    public static final Pair<Block, Item> BLACK_ROOF_RIDGE = addSpecial("black_roof_ridge", BLOCK_ROOF, ITEM_STRUCTURE);
+    public static final Pair<Block, Item> CUP = addSpecial("cup", BLOCK_MINIATURE, ITEM_FURNITURE);
+    public static final Pair<Block, Item> REFRESHMENTS = addSpecial("refreshments", BLOCK_DESSERT, ITEM_FURNITURE);
+    public static final Pair<Block, Item> FRUIT_PLATTER = addSpecial("fruit_platter", BLOCK_DESSERT, ITEM_FURNITURE);
 
     public static final Pair<Block, Item> PLAIN_ITEM_DISPLAY = addSpecial("plain_item_display", BLOCK_STONE_DISPLAY, ITEM_FUNCTIONAL);
     public static final Pair<Block, Item> GORGEOUS_ITEM_DISPLAY = addSpecial("gorgeous_item_display", BLOCK_STONE_DISPLAY, ITEM_FUNCTIONAL);
@@ -980,21 +1008,21 @@ public class ModBlocks {
     public static final Pair<Block, Item> MECHANICAL_BLOCK_DISPLAY = addSpecial("mechanical_block_display", BLOCK_METAL_DISPLAY, ITEM_FUNCTIONAL);
     public static final Pair<Block, Item> TECH_BLOCK_DISPLAY = addSpecial("tech_block_display", BLOCK_METAL_DISPLAY, ITEM_FUNCTIONAL);
 
-//    public static final Pair<Block, Item> VARNISHED_WARDROBE = addSpecial("varnished_wardrobe", BLOCK_WOOD_WARDROBE, ITEM_FUNCTIONAL);
-//    public static final Pair<Block, Item> EBONY_WARDROBE = addSpecial("ebony_wardrobe", BLOCK_WOOD_WARDROBE, ITEM_FUNCTIONAL);
-//    public static final Pair<Block, Item> MAHOGANY_WARDROBE = addSpecial("mahogany_wardrobe", BLOCK_WOOD_WARDROBE, ITEM_FUNCTIONAL);
-//    public static final Pair<Block, Item> IRON_WARDROBE = addSpecial("iron_wardrobe", BLOCK_METAL_WARDROBE, ITEM_FUNCTIONAL);
-//    public static final Pair<Block, Item> GLASS_WARDROBE = addSpecial("glass_wardrobe", BLOCK_METAL_WARDROBE, ITEM_FUNCTIONAL);
-//    public static final Pair<Block, Item> FULL_GLASS_WARDROBE = addSpecial("full_glass_wardrobe", BLOCK_GLASS_WARDROBE, ITEM_FUNCTIONAL);
-//
-//    public static final Pair<Block, Item> FACTORY_LIGHT_BAR = addSpecial("factory_light_bar", BLOCK_METAL_LIGHT_NO_COLLISSION, ITEM_FURNITURE);
-//
-//    public static final Pair<Block, Item> FACTORY_VENT_FAN = addSpecial("factory_vent_fan", BLOCK_METAL_NO_OCCLUSION, ITEM_FURNITURE);
-//    public static final Pair<Block, Item> FACTORY_VENT_FAN_BIG = addSpecial("factory_vent_fan_big", BLOCK_METAL_NO_OCCLUSION, ITEM_FURNITURE);
-//
-//    public static final Pair<Block, Item> MECHANICAL_CONSOLE = addSpecial("mechanical_console", BLOCK_METAL_LIGHT, ITEM_FURNITURE);
-//
-//    public static final Pair<Block, Item> TECH_CONSOLE = addSpecial("tech_console", BLOCK_METAL_LIGHT, ITEM_FURNITURE);
+    public static final Pair<Block, Item> VARNISHED_WARDROBE = addSpecial("varnished_wardrobe", BLOCK_WOOD_WARDROBE, ITEM_FUNCTIONAL);
+    public static final Pair<Block, Item> EBONY_WARDROBE = addSpecial("ebony_wardrobe", BLOCK_WOOD_WARDROBE, ITEM_FUNCTIONAL);
+    public static final Pair<Block, Item> MAHOGANY_WARDROBE = addSpecial("mahogany_wardrobe", BLOCK_WOOD_WARDROBE, ITEM_FUNCTIONAL);
+    public static final Pair<Block, Item> IRON_WARDROBE = addSpecial("iron_wardrobe", BLOCK_METAL_WARDROBE, ITEM_FUNCTIONAL);
+    public static final Pair<Block, Item> GLASS_WARDROBE = addSpecial("glass_wardrobe", BLOCK_METAL_WARDROBE, ITEM_FUNCTIONAL);
+    public static final Pair<Block, Item> FULL_GLASS_WARDROBE = addSpecial("full_glass_wardrobe", BLOCK_GLASS_WARDROBE, ITEM_FUNCTIONAL);
+
+    public static final Pair<Block, Item> FACTORY_LIGHT_BAR = addSpecial("factory_light_bar", BLOCK_METAL_LIGHT_NO_COLLISSION, ITEM_FURNITURE);
+
+    public static final Pair<Block, Item> FACTORY_VENT_FAN = addSpecial("factory_vent_fan", BLOCK_METAL_NO_OCCLUSION, ITEM_FURNITURE);
+    public static final Pair<Block, Item> FACTORY_VENT_FAN_BIG = addSpecial("factory_vent_fan_big", BLOCK_METAL_NO_OCCLUSION, ITEM_FURNITURE);
+
+    public static final Pair<Block, Item> MECHANICAL_CONSOLE = addSpecial("mechanical_console", BLOCK_METAL_LIGHT, ITEM_FURNITURE);
+
+    public static final Pair<Block, Item> TECH_CONSOLE = addSpecial("tech_console", BLOCK_METAL_LIGHT, ITEM_FURNITURE);
 
     public static void registry() {
 
