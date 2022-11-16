@@ -1,15 +1,18 @@
 package cn.dancingsnow.xkdeco.client;
 
+import cn.dancingsnow.xkdeco.XKDeco;
 import cn.dancingsnow.xkdeco.block.XKDecoBlock;
 import cn.dancingsnow.xkdeco.client.renderer.BlockDisplayRenderer;
 import cn.dancingsnow.xkdeco.client.renderer.ItemDisplayRenderer;
 import cn.dancingsnow.xkdeco.setup.ModBlockEntities;
+import cn.dancingsnow.xkdeco.setup.ModEntities;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.client.color.block.BlockColorProvider;
 import net.minecraft.client.color.block.BlockColors;
@@ -18,6 +21,8 @@ import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.color.world.FoliageColors;
 import net.minecraft.client.color.world.GrassColors;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.entity.EmptyEntityRenderer;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
@@ -47,7 +52,9 @@ public class XkdecoClient implements ClientModInitializer {
         BlockEntityRendererRegistry.register(ModBlockEntities.BLOCK_DISPLAY_BLOCK_ENTITY, BlockDisplayRenderer::new);
         BlockEntityRendererRegistry.register(ModBlockEntities.ITEM_DISPLAY_BLOCK_ENTITY, ItemDisplayRenderer::new);
 
-        setItemColors();
+        EntityRendererRegistry.register(ModEntities.CUSHION_ENTITY, EmptyEntityRenderer<Entity>::new);
+
+//        setItemColors();
         setBlockColors();
         setCutoutBlocks();
 
@@ -57,6 +64,7 @@ public class XkdecoClient implements ClientModInitializer {
     public static void setItemColors() {
         System.out.println("setItemColors");
         var blockColors = new BlockColors();
+//        var blockColors = MinecraftClient.getInstance().getBlockColors();
 
         var blockItemColor = (ItemColorProvider) (stack, tintIndex) -> {
             var state = ((BlockItem) stack.getItem()).getBlock().getDefaultState();
@@ -65,19 +73,19 @@ public class XkdecoClient implements ClientModInitializer {
         var waterItemColor = (ItemColorProvider) (stack, tintIndex) -> 0x3f76e4;
 
         var ids = Registry.BLOCK.getIds();
-        ColorProviderRegistry.ITEM.register(blockItemColor, ids.stream().filter(id -> id.getPath().contains(GRASS_PREFIX))
+        ColorProviderRegistry.ITEM.register(blockItemColor, ids.stream().filter(id -> XKDeco.MOD_ID.equals(id.getNamespace())).filter(id -> id.getPath().contains(GRASS_PREFIX))
                 .map(Registry.ITEM::get).toArray(Item[]::new));
 
-        ColorProviderRegistry.ITEM.register(blockItemColor, ids.stream().filter(id -> id.getPath().contains(PLANTABLE_PREFIX))
+        ColorProviderRegistry.ITEM.register(blockItemColor, ids.stream().filter(id -> XKDeco.MOD_ID.equals(id.getNamespace())).filter(id -> id.getPath().contains(PLANTABLE_PREFIX))
                 .map(Registry.ITEM::get).toArray(Item[]::new));
 
-        ColorProviderRegistry.ITEM.register(blockItemColor, ids.stream().filter(id -> id.getPath().contains(WILLOW_PREFIX))
+        ColorProviderRegistry.ITEM.register(blockItemColor, ids.stream().filter(id -> XKDeco.MOD_ID.equals(id.getNamespace())).filter(id -> id.getPath().contains(WILLOW_PREFIX))
                 .map(Registry.ITEM::get).toArray(Item[]::new));
 
-        ColorProviderRegistry.ITEM.register(blockItemColor, ids.stream().filter(id -> id.getPath().contains(LEAVES_DARK_SUFFIX))
+        ColorProviderRegistry.ITEM.register(blockItemColor, ids.stream().filter(id -> XKDeco.MOD_ID.equals(id.getNamespace())).filter(id -> id.getPath().contains(LEAVES_DARK_SUFFIX))
                 .map(Registry.ITEM::get).toArray(Item[]::new));
 
-        ColorProviderRegistry.ITEM.register(waterItemColor, ids.stream().filter(id -> id.getPath().contains(STONE_WATER_PREFIX))
+        ColorProviderRegistry.ITEM.register(waterItemColor, ids.stream().filter(id -> XKDeco.MOD_ID.equals(id.getNamespace())).filter(id -> id.getPath().contains(STONE_WATER_PREFIX))
                 .map(Registry.ITEM::get).toArray(Item[]::new));
     }
 
@@ -104,19 +112,19 @@ public class XkdecoClient implements ClientModInitializer {
         };
 
         var ids = Registry.BLOCK.getIds();
-        ColorProviderRegistry.BLOCK.register(grassBlockColor, ids.stream().filter(id -> id.getPath().contains(GRASS_PREFIX))
+        ColorProviderRegistry.BLOCK.register(grassBlockColor, ids.stream().filter(id -> XKDeco.MOD_ID.equals(id.getNamespace())).filter(id -> id.getPath().contains(GRASS_PREFIX))
                 .map(Registry.BLOCK::get).toArray(Block[]::new));
 
-        ColorProviderRegistry.BLOCK.register(grassBlockColor, ids.stream().filter(id -> id.getPath().contains(PLANTABLE_PREFIX))
+        ColorProviderRegistry.BLOCK.register(grassBlockColor, ids.stream().filter(id -> XKDeco.MOD_ID.equals(id.getNamespace())).filter(id -> id.getPath().contains(PLANTABLE_PREFIX))
                 .map(Registry.BLOCK::get).toArray(Block[]::new));
 
-        ColorProviderRegistry.BLOCK.register(leavesBlockColor, ids.stream().filter(id -> id.getPath().contains(WILLOW_PREFIX))
+        ColorProviderRegistry.BLOCK.register(leavesBlockColor, ids.stream().filter(id -> XKDeco.MOD_ID.equals(id.getNamespace())).filter(id -> id.getPath().contains(WILLOW_PREFIX))
                 .map(Registry.BLOCK::get).toArray(Block[]::new));
 
-        ColorProviderRegistry.BLOCK.register(leavesBlockColor, ids.stream().filter(id -> id.getPath().contains(LEAVES_DARK_SUFFIX))
+        ColorProviderRegistry.BLOCK.register(leavesBlockColor, ids.stream().filter(id -> XKDeco.MOD_ID.equals(id.getNamespace())).filter(id -> id.getPath().contains(LEAVES_DARK_SUFFIX))
                 .map(Registry.BLOCK::get).toArray(Block[]::new));
 
-        ColorProviderRegistry.BLOCK.register(waterBlockColor, ids.stream().filter(id -> id.getPath().contains(STONE_WATER_PREFIX))
+        ColorProviderRegistry.BLOCK.register(waterBlockColor, ids.stream().filter(id -> XKDeco.MOD_ID.equals(id.getNamespace())).filter(id -> id.getPath().contains(STONE_WATER_PREFIX))
                 .map(Registry.BLOCK::get).toArray(Block[]::new));
     }
 
