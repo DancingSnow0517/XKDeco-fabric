@@ -16,6 +16,7 @@ public final class SpecialConsole extends StairsBlock implements XKDecoBlock.Spe
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     public float getAmbientOcclusionLightLevel(BlockState state, BlockView world, BlockPos pos) {
         return 1.0F;
     }
