@@ -4,6 +4,7 @@ import cn.dancingsnow.xkdeco.XKDeco;
 import cn.dancingsnow.xkdeco.block.XKDecoBlock;
 import cn.dancingsnow.xkdeco.client.renderer.BlockDisplayRenderer;
 import cn.dancingsnow.xkdeco.client.renderer.ItemDisplayRenderer;
+import cn.dancingsnow.xkdeco.client.renderer.WallRenderer;
 import cn.dancingsnow.xkdeco.setup.ModBlockEntities;
 import cn.dancingsnow.xkdeco.setup.ModEntities;
 import net.fabricmc.api.ClientModInitializer;
@@ -51,6 +52,7 @@ public class XkdecoClient implements ClientModInitializer {
 
         BlockEntityRendererRegistry.register(ModBlockEntities.BLOCK_DISPLAY_BLOCK_ENTITY, BlockDisplayRenderer::new);
         BlockEntityRendererRegistry.register(ModBlockEntities.ITEM_DISPLAY_BLOCK_ENTITY, ItemDisplayRenderer::new);
+//        BlockEntityRendererRegistry.register(ModBlockEntities.WALL_BLOCK_ENTITY, WallRenderer::new);
 
         EntityRendererRegistry.register(ModEntities.CUSHION_ENTITY, EmptyEntityRenderer<Entity>::new);
 

@@ -22,10 +22,12 @@ import cn.dancingsnow.xkdeco.block.SpecialDessertBlock;
 import cn.dancingsnow.xkdeco.block.SpecialItemDisplayBlock;
 import cn.dancingsnow.xkdeco.block.SpecialLightBar;
 import cn.dancingsnow.xkdeco.block.SpecialRoofRidgeBlock;
+import cn.dancingsnow.xkdeco.block.SpecialWallBlock;
 import cn.dancingsnow.xkdeco.block.SpecialWardrobeBlock;
 import com.google.common.collect.Maps;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.WallBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
@@ -36,6 +38,7 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -246,20 +249,21 @@ public class ModBlocks {
         }
     }
 
-//    public static void addSpecialWallBlocks() {
-//        var ids = Registry.BLOCK.getIds();
-//        for (var id : ids) {
-//            if (!id.getNamespace().equals("minecraft")) {
-//                continue;
-//            }
-//            var block = Registry.BLOCK.get(id);
-//            if (block instanceof WallBlock wall) {
-//                var specialBlock = new SpecialWallBlock(wall);
-//                var name = SPECIAL_WALL_PREFIX + id.toString().replace(':', '_');
-//                createBlockItemAndRegistry(specialBlock, ITEM_STRUCTURE, new Identifier(XKDeco.MOD_ID, name));
-//            }
-//        }
-//    }
+    public static void addSpecialWallBlocks() {
+        var ids = new ArrayList<>(Registry.BLOCK.getIds());
+
+        for (var id : ids) {
+            if (!id.getNamespace().equals("minecraft")) {
+                continue;
+            }
+            var block = Registry.BLOCK.get(id);
+            if (block instanceof WallBlock wall) {
+                var specialBlock = new SpecialWallBlock(wall);
+                var name = SPECIAL_WALL_PREFIX + id.toString().replace(':', '_');
+                createBlockItemAndRegistry(specialBlock, ITEM_STRUCTURE, new Identifier(XKDeco.MOD_ID, name));
+            }
+        }
+    }
 
     private static Pair<Block, Item> createBlockItemAndRegistry(Block block, Item.Settings settings, Identifier identifier) {
         BlockItem blockItem = new BlockItem(block, settings);

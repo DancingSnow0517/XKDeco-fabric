@@ -120,10 +120,9 @@ public final class SpecialWallBlock extends WallBlock implements BlockEntityProv
         return Text.translatable("block." + XKDeco.MOD_ID + ".special_wall", super.getName());
     }
 
-    @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return null;
+        return new WallBlockEntity(pos, state);
     }
 
     @Override

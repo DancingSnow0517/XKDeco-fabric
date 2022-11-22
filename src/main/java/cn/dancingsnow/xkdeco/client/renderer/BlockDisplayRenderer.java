@@ -3,13 +3,11 @@ package cn.dancingsnow.xkdeco.client.renderer;
 import cn.dancingsnow.xkdeco.blockentity.BlockDisplayBlockEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.LightmapTextureManager;
-import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.BlockRenderManager;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.util.math.random.Random;
 import net.minecraft.world.LightType;
 
 import java.util.Objects;
@@ -39,7 +37,7 @@ public class BlockDisplayRenderer implements BlockEntityRenderer<BlockDisplayBlo
         matrices.scale(BLOCK_SCALE, BLOCK_SCALE, BLOCK_SCALE);
         var delta = (1 - BLOCK_SCALE) / 2;
         matrices.translate(delta, 1, delta);
-        blockRenderer.renderBlock(state, pos, entity.getWorld(), matrices, vertexConsumers.getBuffer(RenderLayer.getCutout()),false,  Random.create());
+        blockRenderer.renderBlockAsEntity(state, matrices, vertexConsumers, light, overlay);
 
         matrices.pop();
     }
