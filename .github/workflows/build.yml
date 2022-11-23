@@ -20,6 +20,7 @@ jobs:
         uses: actions/setup-java@v3.6.0
         with:
           java-version: ${{ matrix.java }}
+          distribution: zulu
       - name: Setup Cache
         uses: actions/cache@v3.0.11
         with:
