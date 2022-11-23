@@ -91,7 +91,6 @@ public class LangDataGenerator extends FabricLanguageProvider {
     }
 
     private void translateBlock(Identifier identifier, TranslationBuilder builder) {
-        System.out.println(identifier);
         var block = Registry.BLOCK.get(identifier);
         var id = identifier.getPath();
         id = id.replace(ROOF_FLAT_SUFFIX, "_flat_roof");
@@ -100,7 +99,6 @@ public class LangDataGenerator extends FabricLanguageProvider {
     }
 
     private void translateItem(Identifier identifier, TranslationBuilder builder) {
-        System.out.println(identifier);
         var block = Registry.ITEM.get(identifier);
         var id = identifier.getPath();
         id = id.replace(ROOF_FLAT_SUFFIX, "_flat_roof");

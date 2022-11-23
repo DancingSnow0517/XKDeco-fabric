@@ -5,7 +5,9 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.MapColor;
 import net.minecraft.block.Material;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
+import net.minecraft.sound.BlockSoundGroup;
 
 public class ModSettings {
 
@@ -17,7 +19,7 @@ public class ModSettings {
 
     public static final Block.Settings BLOCK_MUD = FabricBlockSettings.of(Material.STONE).strength(1.5f, 3f);
     public static final Block.Settings BLOCK_SANDSTONE = FabricBlockSettings.of(Material.STONE).strength(1.5f, 6f);
-    public static final Block.Settings BLOCK_GLASS = FabricBlockSettings.of(Material.GLASS).nonOpaque().allowsSpawning((s, g, p, e) -> false).solidBlock((s, g, p) -> false).suffocates((s, g, p) -> false).blockVision((s, g, p) -> false).strength(1.5f, 3f);
+    public static final Block.Settings BLOCK_GLASS = FabricBlockSettings.of(Material.GLASS).nonOpaque().allowsSpawning((s, g, p, e) -> false).solidBlock((s, g, p) -> false).suffocates((s, g, p) -> false).blockVision((s, g, p) -> false).strength(0.3f).sounds(BlockSoundGroup.GLASS);
     public static final Block.Settings BLOCK_IRON = FabricBlockSettings.of(Material.METAL).strength(2f, 12f).requiresTool();
     public static final Block.Settings BLOCK_HARD_IRON = FabricBlockSettings.of(Material.METAL).strength(3f, 12f).requiresTool();
     public static final Block.Settings BLOCK_HOLLOW_IRON = FabricBlockSettings.of(Material.METAL).strength(3f, 12f).nonOpaque().requiresTool();
@@ -32,10 +34,10 @@ public class ModSettings {
     public static final Block.Settings BLOCK_LIGHT = FabricBlockSettings.of(Material.GLASS).nonOpaque().strength(2f, 10f).luminance(s -> 15);
     public static final Block.Settings BLOCK_SAND = FabricBlockSettings.of(Material.AGGREGATE).strength(1f, 10f);
     public static final Block.Settings BLOCK_HARD_SAND = FabricBlockSettings.of(Material.AGGREGATE).strength(1f, 12f);
-    public static final Block.Settings BLOCK_DIRT = FabricBlockSettings.of(Material.SOIL).strength(0.5f, 1f);
-    public static final Block.Settings BLOCK_NETHER_STONE = FabricBlockSettings.of(Material.STONE).strength(0.5f, 1f).requiresTool();
-    public static final Block.Settings BLOCK_END_STONE = FabricBlockSettings.of(Material.STONE).strength(2f, 9f).requiresTool();
-    public static final Block.Settings BLOCK_LEAVES = FabricBlockSettings.of(Material.LEAVES).strength(1f, 0.2f).nonOpaque();
+    public static final Block.Settings BLOCK_DIRT = FabricBlockSettings.of(Material.SOIL, MapColor.DIRT_BROWN).strength(0.5f).sounds(BlockSoundGroup.GRAVEL);
+    public static final Block.Settings BLOCK_NETHER_STONE = FabricBlockSettings.of(Material.STONE, MapColor.DARK_RED).strength(0.4f).sounds(BlockSoundGroup.NETHERRACK).requiresTool();
+    public static final Block.Settings BLOCK_END_STONE = FabricBlockSettings.of(Material.STONE, MapColor.PALE_YELLOW).strength(3f, 9f).requiresTool();
+    public static final Block.Settings BLOCK_LEAVES = FabricBlockSettings.of(Material.LEAVES).strength(0.2f).sounds(BlockSoundGroup.GRASS).ticksRandomly().allowsSpawning((s, g, p, e) -> e == EntityType.OCELOT || e == EntityType.PARROT).suffocates((s,w,p) -> false).blockVision((s,w,p) -> false).nonOpaque();
     public static final Block.Settings BLOCK_WOOD_FURNITURE = FabricBlockSettings.of(Material.WOOD).strength(2f, 2.5f).nonOpaque().requiresTool();
     public static final Block.Settings BLOCK_MINIATURE = FabricBlockSettings.of(Material.STONE).strength(0.5f, 0.5f).nonOpaque().requiresTool();
     public static final Block.Settings BLOCK_DESSERT = FabricBlockSettings.of(Material.CAKE).strength(0.5f, 0.5f);
