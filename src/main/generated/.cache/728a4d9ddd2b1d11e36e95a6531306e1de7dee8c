@@ -1,4 +1,4 @@
-// 1.19.2	2022-11-24T00:02:19.3029998	minecraft:block Loot Table
+// 1.19.2	2022-11-24T01:43:12.9994768	minecraft:block Loot Table
 ecc5c99d3f70dace6555a108bab85206f2d39f05 data\xkdeco\loot_tables\blocks\factory_toxic_rusting.json
 c1510f98f92438bde48c42c1dab987145be21192 data\xkdeco\loot_tables\blocks\factory_lamp_block.json
 3108a14378b29ad1bf75350f4239ca7d6db04b25 data\xkdeco\loot_tables\blocks\full_glass_wardrobe.json
@@ -179,7 +179,7 @@ cd0c3e5c811dcbeca3c823dcbb3d20c46ce5a228 data\xkdeco\loot_tables\blocks\sandston
 753f47d0713b442d7b11a6b799ec04bc7f52a5fc data\xkdeco\loot_tables\blocks\dirt_cobblestone.json
 6df563b466a4be18bb22bc7f2c01db60f8df8a09 data\xkdeco\loot_tables\blocks\sandy_cobblestone.json
 6f35ab99830a721d53cfa8a422342dd8c44ab649 data\xkdeco\loot_tables\blocks\miniature_mount.json
-4fda8e0fd1fd7ef67af237565edb1344c52241c2 data\xkdeco\loot_tables\blocks\ink_painting.json
+f3b0d322e9e11f64025d126c1d045b11163e1e2f data\xkdeco\loot_tables\blocks\ink_painting.json
 d1d8c4ca8ccc3063ff2a999f3036f40f57804542 data\xkdeco\loot_tables\blocks\bronze_block.json
 7314542a50139511fcf7e74684e9ef478c3d10bc data\xkdeco\loot_tables\blocks\tech_table_circle.json
 767d2fc257c32873c12dbeb488b5863aa8919585 data\xkdeco\loot_tables\blocks\maya_stone_slab.json
@@ -320,7 +320,7 @@ df7c4fed80c94b8031e2fed5752204df9b8f6710 data\xkdeco\loot_tables\blocks\black_ro
 eaadb65b271c1e566f57623d47cf6cff99a20610 data\xkdeco\loot_tables\blocks\paper_lantern.json
 a025be6feef46cf41789ffbb7996efa3b65fa1dc data\xkdeco\loot_tables\blocks\inscription_bronze_block.json
 393d3760486f19030ec3711d38a07b6aaf4e9fe1 data\xkdeco\loot_tables\blocks\wood_globe.json
-eb650df1adc5192db7e433c3ddc75713a5775f1b data\xkdeco\loot_tables\blocks\calligraphy.json
+9b46d8d2b5d3bc58767ad76d6b39cd33d4b2ec99 data\xkdeco\loot_tables\blocks\calligraphy.json
 5940e476c2248a143d1df9cedce8fe3304005591 data\xkdeco\loot_tables\blocks\miniature_ginkgo.json
 67faff730a75ca39b2a656d2d4948861bb87a1f3 data\xkdeco\loot_tables\blocks\mahogany_wood.json
 c572a18fbba75f26fd741669b65dd1ac0708fa0f data\xkdeco\loot_tables\blocks\ebony_big_table.json

@@ -1,5 +1,9 @@
-// 1.19.2	2022-11-24T00:02:19.3166087	Tags for minecraft:block
+// 1.19.2	2022-11-24T01:43:12.9959373	Tags for minecraft:block
+11d87145bec3e4e162c327a63438ab34b6d696d6 data\minecraft\tags\blocks\mineable\shovel.json
+24fa09638a48cbc3b5721e005b796b1a9f132fa5 data\minecraft\tags\blocks\needs_diamond_tool.json
 a3ce0f1dcfca2038df4085ef5a8818f24b4e4f21 data\minecraft\tags\blocks\dirt.json
 6e45ffc8e5066576c3a022dd1c549fd991798209 data\minecraft\tags\blocks\mushroom_grow_block.json
-04a5a9d9d98753c7f09733b6c2813006c1d25e1a data\minecraft\tags\blocks\mineable\pickaxe.json
-04a5a9d9d98753c7f09733b6c2813006c1d25e1a data\minecraft\tags\blocks\needs_stone_tool.json
+8f23495408a3c98e8ffa3311bfd96c0323dbda38 data\minecraft\tags\blocks\mineable\axe.json
+efd70aab21ab09c61e8f7f7c8f926c89bb08804b data\minecraft\tags\blocks\mineable\pickaxe.json
+65752b050b879b6de3a78586dba4e6f10e46cfbb data\minecraft\tags\blocks\needs_stone_tool.json
+d0e3aa8d1cce597e242dff88520fd04cd0922358 data\minecraft\tags\blocks\mineable\hoe.json

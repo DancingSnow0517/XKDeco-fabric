@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "xkdeco:quartz_sand",
+    "xkdeco:toughened_sand",
+    "xkdeco:dirt_slab",
+    "xkdeco:mycelium_slab",
+    "xkdeco:steel_filings",
+    "xkdeco:dirt_path_slab",
+    "xkdeco:grass_block_slab",
+    "xkdeco:podzol_slab"
+  ]
+}

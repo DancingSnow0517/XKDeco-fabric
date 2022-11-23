@@ -87,6 +87,7 @@ import static cn.dancingsnow.xkdeco.setup.ModSettings.BLOCK_WOOD;
 import static cn.dancingsnow.xkdeco.setup.ModSettings.BLOCK_WOOD_FURNITURE;
 import static cn.dancingsnow.xkdeco.setup.ModSettings.BLOCK_WOOD_LIGHT;
 import static cn.dancingsnow.xkdeco.setup.ModSettings.BLOCK_WOOD_WARDROBE;
+import static cn.dancingsnow.xkdeco.setup.ModSettings.CRYING_BLOCK_OBSIDIAN;
 import static cn.dancingsnow.xkdeco.setup.ModSettings.ITEM_BASIC;
 import static cn.dancingsnow.xkdeco.setup.ModSettings.ITEM_FUNCTIONAL;
 import static cn.dancingsnow.xkdeco.setup.ModSettings.ITEM_FURNITURE;
@@ -814,9 +815,9 @@ public class ModBlocks {
     public static final Pair<Block, Item> CUT_OBSIDIAN_BRICK_SLAB = addIsotropic("cut_obsidian_brick_slab", BLOCK_OBSIDIAN, ITEM_BASIC);
     public static final Pair<Block, Item> CUT_OBSIDIAN_BRICK_STAIRS = addIsotropic("cut_obsidian_brick_stairs", BLOCK_OBSIDIAN, ITEM_BASIC);
 
-    public static final Pair<Block, Item> CRYING_OBSIDIAN_BRICKS = addIsotropic("crying_obsidian_bricks", BLOCK_OBSIDIAN, ITEM_BASIC);
-    public static final Pair<Block, Item> CRYING_OBSIDIAN_BRICK_SLAB = addIsotropic("crying_obsidian_brick_slab", BLOCK_OBSIDIAN, ITEM_BASIC);
-    public static final Pair<Block, Item> CRYING_OBSIDIAN_BRICK_STAIRS = addIsotropic("crying_obsidian_brick_stairs", BLOCK_OBSIDIAN, ITEM_BASIC);
+    public static final Pair<Block, Item> CRYING_OBSIDIAN_BRICKS = addIsotropic("crying_obsidian_bricks", CRYING_BLOCK_OBSIDIAN, ITEM_BASIC);
+    public static final Pair<Block, Item> CRYING_OBSIDIAN_BRICK_SLAB = addIsotropic("crying_obsidian_brick_slab", CRYING_BLOCK_OBSIDIAN, ITEM_BASIC);
+    public static final Pair<Block, Item> CRYING_OBSIDIAN_BRICK_STAIRS = addIsotropic("crying_obsidian_brick_stairs", CRYING_BLOCK_OBSIDIAN, ITEM_BASIC);
 
     public static final Pair<Block, Item> CUT_GOLD_BLOCK = addIsotropic("cut_gold_block", BLOCK_GOLD, ITEM_BASIC);
     public static final Pair<Block, Item> CUT_GOLD_BLOCK_SLAB = addIsotropic("cut_gold_block_slab", BLOCK_GOLD, ITEM_BASIC);

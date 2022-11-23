@@ -39,6 +39,8 @@ public class BlockLootGenerator extends SimpleFabricLootTableProvider {
                     biConsumer.accept(new Identifier(XKDeco.MOD_ID, "blocks/" + path), BlockLootTableGenerator.dropsWithShears(Registry.ITEM.get(id)));
                 } else if (path.contains("glass_tile")) {
                     biConsumer.accept(new Identifier(XKDeco.MOD_ID, "blocks/" + path), BlockLootTableGenerator.dropsWithSilkTouch(Registry.ITEM.get(id)));
+                } else if (path.equals("calligraphy")||path.equals("ink_painting")) {
+                    biConsumer.accept(new Identifier(XKDeco.MOD_ID, "blocks/" + path), BlockLootTableGenerator.dropsWithShears(Registry.ITEM.get(id)));
                 } else {
                     biConsumer.accept(new Identifier(XKDeco.MOD_ID, "blocks/" + path), BlockLootTableGenerator.drops(Registry.ITEM.get(id)));
                 }
