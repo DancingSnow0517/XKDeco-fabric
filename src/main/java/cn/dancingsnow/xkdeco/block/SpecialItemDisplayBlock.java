@@ -114,7 +114,7 @@ public final class SpecialItemDisplayBlock extends BlockWithEntity implements XK
             return ActionResult.PASS;
         }
 
-        if (world.isClient) {
+        if (!world.isClient) {
             var be = world.getBlockEntity(pos);
             if (be instanceof ItemDisplayBlockEntity tileEntity) {
                  var temp = player.getStackInHand(hand).copy();

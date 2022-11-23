@@ -28,7 +28,6 @@ public class ItemDisplayBlockEntity extends BlockEntity implements Clearable {
 
     public ItemDisplayBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(ModBlockEntities.ITEM_DISPLAY_BLOCK_ENTITY, blockPos, blockState);
-        // TODO: Item Projector
         this.isProjector = blockState.isOf(ModBlocks.ITEM_PROJECTOR.getLeft());
     }
 
