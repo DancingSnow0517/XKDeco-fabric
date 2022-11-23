@@ -26,5 +26,32 @@ public class ModBlockTagGenerator extends FabricTagProvider<Block> {
 
         getOrCreateTagBuilder(ModTags.Blocks.STONE_TIRE)
                 .add(ModBlocks.BLACK_BRICK_SLAB.getLeft());
+
+        getOrCreateTagBuilder(ModTags.Blocks.DIRT)
+                .add(ModBlocks.DIRT_SLAB.getLeft())
+                .add(ModBlocks.GRASS_BLOCK_SLAB.getLeft())
+                .add(ModBlocks.MYCELIUM_SLAB.getLeft())
+                .add(ModBlocks.PODZOL_SLAB.getLeft())
+                .add(ModBlocks.CRIMSON_NYLIUM_SLAB.getLeft())
+                .add(ModBlocks.WARPED_NYLIUM_SLAB.getLeft())
+                .add(ModBlocks.DIRT_COBBLESTONE.getLeft())
+                .add(ModBlocks.GRASS_COBBLESTONE.getLeft())
+                .add(ModBlocks.DIRT_COBBLESTONE_PATH.getLeft())
+                .add(ModBlocks.GRASS_COBBLESTONE_PATH.getLeft())
+                .add(ModBlocks.DIRT_COBBLESTONE_SLAB.getLeft())
+                .add(ModBlocks.GRASS_COBBLESTONE_SLAB.getLeft())
+                .add(ModBlocks.DIRT_COBBLESTONE_PATH_SLAB.getLeft())
+                .add(ModBlocks.GRASS_COBBLESTONE_PATH_SLAB.getLeft())
+                .add(ModBlocks.DIRT_COBBLESTONE_STAIRS.getLeft())
+                .add(ModBlocks.GRASS_COBBLESTONE_STAIRS.getLeft())
+                .add(ModBlocks.DIRT_COBBLESTONE_PATH_STAIRS.getLeft())
+                .add(ModBlocks.GRASS_COBBLESTONE_PATH_STAIRS.getLeft())
+                .add(ModBlocks.PLANTABLE_LEAVES.getLeft())
+                .add(ModBlocks.PLANTABLE_LEAVES_DARK.getLeft());
+
+        getOrCreateTagBuilder(ModTags.Blocks.MUSHROOM_GROW_BLOCK)
+                .add(ModBlocks.MYCELIUM_SLAB.getLeft())
+                .add(ModBlocks.CRIMSON_NYLIUM_SLAB.getLeft())
+                .add(ModBlocks.WARPED_NYLIUM_SLAB.getLeft());
     }
 }

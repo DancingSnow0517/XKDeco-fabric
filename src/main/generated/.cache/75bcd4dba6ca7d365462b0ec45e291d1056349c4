@@ -1,3 +1,5 @@
-// 1.19.2	2022-11-23T20:57:55.0134598	Tags for minecraft:block
+// 1.19.2	2022-11-24T00:02:19.3166087	Tags for minecraft:block
+a3ce0f1dcfca2038df4085ef5a8818f24b4e4f21 data\minecraft\tags\blocks\dirt.json
+6e45ffc8e5066576c3a022dd1c549fd991798209 data\minecraft\tags\blocks\mushroom_grow_block.json
 04a5a9d9d98753c7f09733b6c2813006c1d25e1a data\minecraft\tags\blocks\mineable\pickaxe.json
 04a5a9d9d98753c7f09733b6c2813006c1d25e1a data\minecraft\tags\blocks\needs_stone_tool.json

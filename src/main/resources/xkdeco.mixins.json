@@ -4,6 +4,7 @@
   "package": "cn.dancingsnow.xkdeco.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "CactusBlockMixin",
     "PlayerEntityMixin"
   ],
   "client": [

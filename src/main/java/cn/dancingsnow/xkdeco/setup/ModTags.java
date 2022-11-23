@@ -19,6 +19,9 @@ public class ModTags {
         public static final TagKey<Block> IRON_TIRE = mc("needs_iron_tool");
         public static final TagKey<Block> DIAMOND_TIRE = mc("needs_diamond_tool");
 
+        public static final TagKey<Block> DIRT = mc("dirt");
+        public static final TagKey<Block> MUSHROOM_GROW_BLOCK = mc("mushroom_grow_block");
+
         public static TagKey<Block> mod(String path) {
             return TagKey.of(Registry.BLOCK_KEY, new Identifier(XKDeco.MOD_ID, path));
         }

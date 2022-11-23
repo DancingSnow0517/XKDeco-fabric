@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "xkdeco:dirt_slab",
+    "xkdeco:grass_block_slab",
+    "xkdeco:mycelium_slab",
+    "xkdeco:podzol_slab",
+    "xkdeco:crimson_nylium_slab",
+    "xkdeco:warped_nylium_slab",
+    "xkdeco:dirt_cobblestone",
+    "xkdeco:grass_cobblestone",
+    "xkdeco:dirt_cobblestone_path",
+    "xkdeco:grass_cobblestone_path",
+    "xkdeco:dirt_cobblestone_slab",
+    "xkdeco:grass_cobblestone_slab",
+    "xkdeco:dirt_cobblestone_path_slab",
+    "xkdeco:grass_cobblestone_path_slab",
+    "xkdeco:dirt_cobblestone_stairs",
+    "xkdeco:grass_cobblestone_stairs",
+    "xkdeco:dirt_cobblestone_path_stairs",
+    "xkdeco:grass_cobblestone_path_stairs",
+    "xkdeco:plantable_leaves",
+    "xkdeco:plantable_leaves_dark"
+  ]
+}
