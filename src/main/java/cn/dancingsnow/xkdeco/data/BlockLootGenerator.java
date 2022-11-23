@@ -24,7 +24,12 @@ public class BlockLootGenerator extends SimpleFabricLootTableProvider {
         var ids = Registry.BLOCK.getIds();
         for (var id : ids) {
             if (id.getNamespace().equals(XKDeco.MOD_ID)) {
-                biConsumer.accept(new Identifier(XKDeco.MOD_ID, "blocks/" + id.getPath()), BlockLootTableGenerator.drops(Registry.ITEM.get(id)));
+                var path = id.getPath();
+                if (path.endsWith("_slab")) {
+                    biConsumer.accept(new Identifier(XKDeco.MOD_ID, "blocks/" + path), BlockLootTableGenerator.slabDrops(Registry.BLOCK.get(id)));
+                } else {
+                    biConsumer.accept(new Identifier(XKDeco.MOD_ID, "blocks/" + id.getPath()), BlockLootTableGenerator.drops(Registry.ITEM.get(id)));
+                }
             }
         }
     }

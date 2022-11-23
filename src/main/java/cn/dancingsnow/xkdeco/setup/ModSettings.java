@@ -41,7 +41,7 @@ public class ModSettings {
     public static final Block.Settings BLOCK_DESSERT = FabricBlockSettings.of(Material.CAKE).strength(0.5f, 0.5f);
     public static final Block.Settings BLOCK_CARPET = FabricBlockSettings.of(Material.WOOL).strength(0.5f, 0.5f).nonOpaque();
     public static final Block.Settings BLOCK_BOARD = FabricBlockSettings.of(Material.WOOD).strength(0.5f, 0.5f).nonOpaque();
-    public static final Block.Settings BLOCK_ROOF = FabricBlockSettings.of(Material.STONE).strength(1.8f, 12f).nonOpaque();
+    public static final Block.Settings BLOCK_ROOF = FabricBlockSettings.of(Material.STONE).strength(1.8f, 12f).nonOpaque().noCollision();
     public static final Block.Settings BLOCK_STONE_DISPLAY = FabricBlockSettings.of(Material.METAL).strength(1.5f, 6f).solidBlock((a, b, c) -> false);
     public static final Block.Settings BLOCK_METAL_DISPLAY = FabricBlockSettings.of(Material.METAL).strength(1.5f, 6f).solidBlock((a, b, c) -> false);
     public static final Block.Settings BLOCK_WOOD_WARDROBE = FabricBlockSettings.of(Material.WOOD).strength(1.5f, 6f).nonOpaque();
