@@ -2,22 +2,19 @@ package cn.dancingsnow.xkdeco.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.FallingBlock;
 import net.minecraft.block.StairsBlock;
 import net.minecraft.block.enums.BlockHalf;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
-import net.minecraft.world.BlockView;
 
-public final class IsotropicCubeBlock extends Block implements XKDecoBlock.Isotropic {
-    private final boolean isGlass;
+public final class IsotropicFallingBlock extends FallingBlock implements XKDecoBlock.Isotropic {
 
-    public IsotropicCubeBlock(Settings settings, boolean isGlass) {
+
+    public IsotropicFallingBlock(Settings settings) {
         super(settings);
-        this.isGlass = isGlass;
     }
-
     @Override
     @SuppressWarnings("deprecation")
     public boolean isSideInvisible(BlockState pState, BlockState pAdjacentBlockState, Direction pDirection) {
@@ -35,24 +32,13 @@ public final class IsotropicCubeBlock extends Block implements XKDecoBlock.Isotr
                     || (pAdjacentBlockState.getBlock() instanceof StairsBlock) && ((pAdjacentBlockState.get(StairsBlock.HALF) == BlockHalf.BOTTOM && pDirection == Direction.UP)
                     || pAdjacentBlockState.get(StairsBlock.HALF) == BlockHalf.TOP && pDirection == Direction.DOWN);
         }
-
         return false;
     }
 
-    @Override
-    @SuppressWarnings("deprecation")
-    public float getAmbientOcclusionLightLevel(BlockState state, BlockView world, BlockPos pos) {
-        return this.isGlass ? 1.0F : super.getAmbientOcclusionLightLevel(state, world, pos);
-    }
-
-    @Override
-    public boolean isTranslucent(BlockState state, BlockView world, BlockPos pos) {
-        return this.isGlass || super.isTranslucent(state, world, pos);
-    }
 
     @Override
     public boolean isGlass() {
-        return isGlass;
+        return false;
     }
 
     @Override

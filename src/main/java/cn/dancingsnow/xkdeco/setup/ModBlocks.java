@@ -5,6 +5,7 @@ import cn.dancingsnow.xkdeco.block.BasicBlock;
 import cn.dancingsnow.xkdeco.block.BasicCubeBlock;
 import cn.dancingsnow.xkdeco.block.BasicFullDirectionBlock;
 import cn.dancingsnow.xkdeco.block.IsotropicCubeBlock;
+import cn.dancingsnow.xkdeco.block.IsotropicFallingBlock;
 import cn.dancingsnow.xkdeco.block.IsotropicHollowBlock;
 import cn.dancingsnow.xkdeco.block.IsotropicPillarBlock;
 import cn.dancingsnow.xkdeco.block.IsotropicRoofBlock;
@@ -188,6 +189,9 @@ public class ModBlocks {
             return createBlockItemAndRegistry(block, itemSettings, identifier);
         } else if (id.contains(ROOF_SUFFIX)) {
             var block = new IsotropicRoofBlock(settings);
+            return createBlockItemAndRegistry(block, itemSettings, identifier);
+        } else if (id.equals("quartz_sand") || id.equals("steel_filings") || id.equals("toughened_sand")) {
+            var block = new IsotropicFallingBlock(settings);
             return createBlockItemAndRegistry(block, itemSettings, identifier);
         } else {
             var block = new IsotropicCubeBlock(settings, isGlass);
